@@ -1,11 +1,11 @@
 import http from 'http';
 import fs from 'fs'
-import path from 'path'
 import mongoose from "mongoose";
 import users from "./db/user"
 import { IUser } from "./model/user";
 import { HttpRequestHandlers } from './http-middleware/request-handlers';
 import { HTTP_CODE } from './enums/http-status-codes';
+import { get as getConfig } from 'config';
 
 const getHandler = (req: http.ClientRequest, res: http.ServerResponse, reqUrl: string) => {
     console.log('getting data', reqUrl)
@@ -52,8 +52,7 @@ const noResponse = (req: any, res: any) => {
     });
 }
 
-const uri ="mongodb://localhost:27017/friends";
-mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect(getConfig('mongo_uri'), { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 
 const connection = mongoose.connection;
 
@@ -72,6 +71,6 @@ http.createServer((req: any, res: any) => {
     const reqUrl = new URL(req.url, 'http://127.0.0.1/');
     const redirectedFunc = router[req.method + reqUrl.pathname] || router['default'];
     redirectedFunc(req, res, reqUrl);
-}).listen(8181, () => {
-    console.log('Server is running at http://127.0.0.1:8181/');
+}).listen(getConfig('port'), () => {
+    console.log(`Server is running at http://127.0.0.1:/${getConfig('port')}`);
 });
