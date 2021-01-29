@@ -1,6 +1,4 @@
-
-import { Document } from 'mongoose';
-export interface IPassport extends Document {
+export interface IPassport {
     password: string;
     userId: string;
 }

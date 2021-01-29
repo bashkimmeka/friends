@@ -40,4 +40,3 @@ LikeSchema.statics.existingLikeUnlike = function (like: ILike) {
 }
 
 export const Like: LikeModel = model<IlikeInterface, LikeModel>('Like', LikeSchema);
-//export default mongoose.model("likes", LikeSchema);
