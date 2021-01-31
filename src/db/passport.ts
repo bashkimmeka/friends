@@ -48,13 +48,10 @@ PassportSchema.statics.getPassword = function(userId: string) {
 }
 
 PassportSchema.statics.createPassport = function (password, userId) {
-    console.log('user: ' + userId)
-    console.log('password: ' + password)
     const salt = bcrypt.genSaltSync(10);
     return this.create({
         password: bcrypt.hashSync(password, salt),
         userId
     })
 }
-export const PassportDB: PassportModel = model<IPassportInterface, PassportModel>('passport', PassportSchema);
-//export default model<PassportModel>("passport", PassportSchema);
+export const Passport: PassportModel = model<IPassportInterface, PassportModel>('passport', PassportSchema);

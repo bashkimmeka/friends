@@ -8,7 +8,7 @@ export class AuthMiddleware {
         if(authorization) {
             if(!req.headers['authorization']){
                 res.writeHead(HTTP_CODE.Unauthorized);
-                res.write("Unauthorized");
+                res.write(JSON.stringify({ message: "unauthorized" }));
                 res.end();
             } else {
                 this.tokenService.verifyToken(this.getTokenFromHeader(req.headers['authorization'])).then((result) => {
@@ -16,7 +16,7 @@ export class AuthMiddleware {
                     callback(req, res, reqUrl)
                 }).catch(() => {
                     res.writeHead(HTTP_CODE.Unauthorized);
-                    res.write("Invalid token");
+                    res.write(JSON.stringify({ message: 'Invalid token' }));
                     res.end();
                 })
             }

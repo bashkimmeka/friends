@@ -34,18 +34,16 @@ TokenSchema.statics.saveToken = function (token: IToken) {
 TokenSchema.statics.validateToken = function (token: IToken) {
     return new Promise((resolve) => {
         this.findOne({ 'token': token }).exec((err: string, result: IToken) => {
-            if (err) {
-                resolve(false)
-            }
-            else {
+            if (result !== null) {
                 const date = new Date();
-                if(result.expire.getTime() < date.getTime()){
-                    console.log('token is valid');
+                if (result.expire.getTime() < date.getTime()) {
                     resolve(false)
                 } else {
-                    console.log('token is invalid')
                     resolve(true)
-                }   
+                }
+            }
+            else {
+                resolve(false)
             }
         })
     })

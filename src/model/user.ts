@@ -4,7 +4,6 @@ export interface IUser {
     image: string,
     email:string,
     likesCount: number,
-    dislikesCount: number,
     createdAt: Date,
     updatedAt: Date,
 }
