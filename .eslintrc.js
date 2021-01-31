@@ -6,7 +6,9 @@ module.exports = {
       project: "./tsconfig.json"
     },
     extends: [
-      "plugin:@typescript-eslint/recommended" // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
     ],
     plugins: [
         "@typescript-eslint"
