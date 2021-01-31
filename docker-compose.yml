@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+       friends-api:
+           container_name: friends-api
+           restart: always
+           build: .
+           ports:
+             - "8181:8181"
+           links:
+             - mongodb
+       mongodb:
+             build: 
+              context: .
+              dockerfile: Dockerfile.mongodb.local
+             container_name: friends-mongodb
+             image: friends-mongodb:latest
+             ports:
+               - '27017:27017'
