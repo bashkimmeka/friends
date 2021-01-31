@@ -1,5 +1,5 @@
-export interface IRoute{
-    url: string,
-    controller(): void,
-    authorization: boolean
+export interface IRoute {
+  url: string;
+  controller(): void;
+  authorization: boolean;
 }

@@ -1,4 +1,4 @@
 export interface IPassport {
-    password: string;
-    userId: string;
+  password: string;
+  userId: string;
 }
