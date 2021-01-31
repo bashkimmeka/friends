@@ -16,6 +16,11 @@ docker ps
 ```
 Note! Make sure you have entered a secret key ```app_secret``` in app env files under ```/config```
 
+## Install required dependencies 
+```bash
+npm install
+```
+
 ## Start backend app
 ```bash
 npm start
