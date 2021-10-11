@@ -22,7 +22,7 @@
   "homepage": "https://github.com/bashkimmeka/friends#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "config": "^3.3.3",
+    "config": "^3.3.6",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.13"
   },
