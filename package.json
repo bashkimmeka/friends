@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/bashkimmeka/friends#readme",
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "config": "^3.3.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.13"
